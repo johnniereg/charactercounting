@@ -1,24 +1,20 @@
-
 // Remove spaces and lower case and return array of letters
 function removeSpaces(input) {
   var noSpaces = input.split(" ").join("").toLowerCase().split("");
   return noSpaces;
 }
-// console.log(removeSpaces("Here is a test."));
 
-var countedLetters = {};
-var instances = 1;
-function addLettersToObjectUncounted(input) {
-  for (var i = 0; i < input.length; i++) {
-    countedLetters[input[i]] = instances;
+function countLetters(inputString) {
+  var input = removeSpaces(inputString);
+  var countedLetters = {};
+    for (var i = 0; i < input.length; i++) {
+      if (countedLetters[input[i]] === undefined) {
+        countedLetters[input[i]] = 1;
+      }
+      else
+        countedLetters[input[i]] += 1;
   }
   return countedLetters;
 }
 
-console.log(addLettersToObjectUncounted(removeSpaces("Here is a test.")));
-
-
-
-
-
-
+console.log(countLetters("lighthouse in the house"));
